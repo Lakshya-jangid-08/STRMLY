@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes, useMatch } from 'react-router-dom'
+import { Route, Routes, useMatch, Navigate } from 'react-router-dom'
 import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
 import CreatePostPage from './Pages/CreatePostPage'
@@ -10,7 +10,7 @@ import Footer from './Components/Footer'
 function App() {
 
   const authRoute = useMatch('/login') || useMatch('/sign-up');
-
+  cons
   if(authRoute) {
     return (
       <Routes>
@@ -29,7 +29,7 @@ function App() {
         <Route path='/create-post' element={isAuthenticated ? <CreatePostPage/> : <LoginPage/>} />
         <Route path='/dashboard' element={<Home/>} />
         <Route path='/dashboard/:input' element={<Home/>} />
-        <Route path='*' element={<Navigate to="/dashboard" replace />} />
+        <Route path='*' element={<Navigate to="/dashboard" replace={true} />} />
       </Routes>
       <Footer/>
     </>
