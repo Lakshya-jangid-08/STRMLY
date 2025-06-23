@@ -10,7 +10,6 @@ import Footer from './Components/Footer'
 function App() {
 
   const authRoute = useMatch('/login') || useMatch('/sign-up');
-  cons
   if(authRoute) {
     return (
       <Routes>
